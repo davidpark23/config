@@ -1,0 +1,35 @@
+spring:
+  profiles: dev
+  application:
+    name: coinbank.kr
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.103:3306/coinbank?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: cobadba
+    password: cobadba123$
+  data:
+    rest:
+      base-path: /
+server:
+  port: ${PORT:8080}  # 서비스 사용할 포트(service 시작 시 옵션값으로 할당 가능하도록 설정)
+logging:
+  config: classpath:logback-spring.xml
+  file: logs/application.log
+  level:
+    org.springframework: INFO
+    org.springframework.web: INFO
+    jdbc.sqlonly: DEBUG
+    com.nonos.coinbank_bt: DEBUG
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+sms:
+  api:
+    key: NCSSRWUZQLJ75OHI
+    secret: KXFJCFRHRYTXEXKHGGZHTAVXP5FJYPBR
+bitcoin:
+  rpcurl: http://ul:pl@192.168.0.104:18332/
