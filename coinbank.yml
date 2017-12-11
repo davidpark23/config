@@ -1,0 +1,17 @@
+spring:
+  profiles: prod
+  application:
+    name: coinbank.kr
+server:
+  port: ${PORT:8080}  # 서비스 사용할 포트(service 시작 시 옵션값으로 할당 가능하도록 설정)
+greeting: "Product Mode"
+
+---
+
+spring:
+  profiles: dev
+  application:
+    name: dev.coinbank.kr
+server:
+  port: ${PORT:8080}  # 서비스 사용할 포트(service 시작 시 옵션값으로 할당 가능하도록 설정)
+greeting: "Development Mode"
